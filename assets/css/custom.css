@@ -1,0 +1,11 @@
+/*
+Custom Css
+*/
+
+/* Estilos opcionales para el botón */
+.btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}

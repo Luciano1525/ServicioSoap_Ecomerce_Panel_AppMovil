@@ -1,0 +1,59 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header, .card-footer {
+    background-color: #ffffff;
+    border: none;
+    padding: 20px 0;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+@media (min-width: 576px) {
+    .col-sm-10 {
+        max-width: 80%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-8 {
+        max-width: 70%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-lg-6 {
+        max-width: 60%;
+    }
+}
+
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.password-wrapper input {
+    flex-grow: 1;
+}
+.password-wrapper button {
+    position: absolute;
+    right: 10px;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
