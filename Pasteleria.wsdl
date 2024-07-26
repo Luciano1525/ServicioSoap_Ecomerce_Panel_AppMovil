@@ -1,0 +1,684 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://localhost/SOAPPasteleria/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://localhost/SOAPPasteleria/">
+<wsdl:types>
+<xsd:schema targetNamespace="http://localhost/SOAPPasteleria/"/>
+</wsdl:types>
+<wsdl:message name="getCategoriasRequest"/>
+<wsdl:message name="getCategoriasResponse">
+<wsdl:part name="getCategoriasReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="getNuevosProductosRequest"/>
+<wsdl:message name="getNuevosProductosResponse">
+<wsdl:part name="getNuevosProductosReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="getProductoRequest">
+<wsdl:part name="id_producto" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="getProductoResponse">
+<wsdl:part name="getProductoReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="getProductosRequest">
+<wsdl:part name="desde" type="xsd:int"/>
+<wsdl:part name="porPagina" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="getProductosResponse">
+<wsdl:part name="getProductosReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="getTotalProductosRequest"/>
+<wsdl:message name="getTotalProductosResponse">
+<wsdl:part name="getTotalProductosReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="getProductosCatRequest">
+<wsdl:part name="id_categoria" type="xsd:int"/>
+<wsdl:part name="desde" type="xsd:int"/>
+<wsdl:part name="porPagina" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="getProductosCatResponse">
+<wsdl:part name="getProductosCatReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="getTotalProductosCatRequest">
+<wsdl:part name="id_categoria" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="getTotalProductosCatResponse">
+<wsdl:part name="getTotalProductosCatReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="getAleatoriosRequest">
+<wsdl:part name="id_categoria" type="xsd:int"/>
+<wsdl:part name="id_producto" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="getAleatoriosResponse">
+<wsdl:part name="getAleatoriosReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="verificarUsuarioExistenteRequest">
+<wsdl:part name="usuario" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="verificarUsuarioExistenteResponse">
+<wsdl:part name="verificarUsuarioExistenteReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="verificarCorreoExistenteRequest">
+<wsdl:part name="correo" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="verificarCorreoExistenteResponse">
+<wsdl:part name="verificarCorreoExistenteReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="verificarRucExistenteRequest">
+<wsdl:part name="ruc" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="verificarRucExistenteResponse">
+<wsdl:part name="verificarRucExistenteReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="insertarClienteRequest">
+<wsdl:part name="ruc" type="xsd:string"/>
+<wsdl:part name="nombre" type="xsd:string"/>
+<wsdl:part name="direccion" type="xsd:string"/>
+<wsdl:part name="telefono" type="xsd:string"/>
+<wsdl:part name="municipio" type="xsd:string"/>
+<wsdl:part name="estado_municipio" type="xsd:string"/>
+<wsdl:part name="correo" type="xsd:string"/>
+<wsdl:part name="genero" type="xsd:string"/>
+<wsdl:part name="usuario" type="xsd:string"/>
+<wsdl:part name="contraseña" type="xsd:string"/>
+<wsdl:part name="preferencias" type="xsd:string"/>
+<wsdl:part name="estado" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="insertarClienteResponse">
+<wsdl:part name="insertarClienteReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="selectUsuarioRequest">
+<wsdl:part name="usuario" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="selectUsuarioResponse">
+<wsdl:part name="selectUsuarioReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="updateUsuarioRequest">
+<wsdl:part name="nombre" type="xsd:string"/>
+<wsdl:part name="direccion" type="xsd:string"/>
+<wsdl:part name="telefono" type="xsd:string"/>
+<wsdl:part name="municipio" type="xsd:string"/>
+<wsdl:part name="estado_municipio" type="xsd:string"/>
+<wsdl:part name="correo" type="xsd:string"/>
+<wsdl:part name="genero" type="xsd:string"/>
+<wsdl:part name="usuario" type="xsd:string"/>
+<wsdl:part name="contraseña" type="xsd:string"/>
+<wsdl:part name="preferencias" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="updateUsuarioResponse">
+<wsdl:part name="updateUsuarioReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="updateContraseñaRequest">
+<wsdl:part name="contraseña" type="xsd:string"/>
+<wsdl:part name="correo" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="updateContraseñaResponse">
+<wsdl:part name="updateContraseñaReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="misComprasRequest">
+<wsdl:part name="usuario" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="misComprasResponse">
+<wsdl:part name="misComprasReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="getProductoByIdRequest">
+<wsdl:part name="id_producto" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="getProductoByIdResponse">
+<wsdl:part name="getProductoByIdReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="selectUsuariosRequest">
+<wsdl:part name="usuario" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="selectUsuariosResponse">
+<wsdl:part name="selectUsuariosReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="buscaridCRequest"/>
+<wsdl:message name="buscaridCResponse">
+<wsdl:part name="buscaridCReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="buscarProductoRequest">
+<wsdl:part name="producto_id" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="buscarProductoResponse">
+<wsdl:part name="buscarProductoReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="registrarCompraRequest">
+<wsdl:part name="cliente" type="xsd:int"/>
+<wsdl:part name="total" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="registrarCompraResponse">
+<wsdl:part name="registrarCompraReturn" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="registrarDetalleRequest">
+<wsdl:part name="id_venta" type="xsd:string"/>
+<wsdl:part name="nombre" type="xsd:string"/>
+<wsdl:part name="id_producto" type="xsd:string"/>
+<wsdl:part name="cantidad" type="xsd:string"/>
+<wsdl:part name="precio" type="xsd:string"/>
+<wsdl:part name="id_usuario" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="registrarDetalleResponse">
+<wsdl:part name="registrarDetalleReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="verificarProductosRequest">
+<wsdl:part name="id_usuario" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="verificarProductosResponse">
+<wsdl:part name="verificarProductosReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="insertarDetalleRequest">
+<wsdl:part name="nombre" type="xsd:string"/>
+<wsdl:part name="cantidad" type="xsd:string"/>
+<wsdl:part name="precio" type="xsd:string"/>
+<wsdl:part name="total" type="xsd:string"/>
+<wsdl:part name="id_producto" type="xsd:string"/>
+<wsdl:part name="id_usuario" type="xsd:string"/>
+<wsdl:part name="id_cliente" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="insertarDetalleResponse">
+<wsdl:part name="insertarDetalleReturn" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="VaciarCompraRequest">
+<wsdl:part name="id_cliente" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="VaciarCompraResponse">
+<wsdl:part name="VaciarCompraReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="VaciarTempoRequest"/>
+<wsdl:message name="VaciarTempoResponse"/>
+<wsdl:message name="VaciarVentaRequest">
+<wsdl:part name="fecha" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="VaciarVentaResponse">
+<wsdl:part name="VaciarVentaReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="ventasRequest">
+<wsdl:part name="id_cliente" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="ventasResponse">
+<wsdl:part name="ventasReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="ventasDetalleRequest">
+<wsdl:part name="idventa" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="ventasDetalleResponse">
+<wsdl:part name="ventasDetalleReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="stockActualRequest">
+<wsdl:part name="id_producto" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="stockActualResponse">
+<wsdl:part name="stockActualReturn" type="soap-enc:array"/>
+</wsdl:message>
+<wsdl:message name="registrarStockRequest">
+<wsdl:part name="cantidad" type="xsd:int"/>
+<wsdl:part name="id_producto" type="xsd:int"/>
+</wsdl:message>
+<wsdl:message name="registrarStockResponse">
+<wsdl:part name="registrarStockReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:message name="eliminarCarritoRequest">
+<wsdl:part name="id_cliente" type="xsd:int"/>
+<wsdl:part name="id_producto" type="xsd:int"/>
+<wsdl:part name="total" type="xsd:string"/>
+</wsdl:message>
+<wsdl:message name="eliminarCarritoResponse">
+<wsdl:part name="eliminarCarritoReturn" type="xsd:boolean"/>
+</wsdl:message>
+<wsdl:portType name="PasteleriaPortType">
+<wsdl:operation name="getCategorias">
+<wsdl:documentation>Obtiene todas las categorías.</wsdl:documentation>
+<wsdl:input message="tns:getCategoriasRequest"/>
+<wsdl:output message="tns:getCategoriasResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getNuevosProductos">
+<wsdl:documentation>Obtiene los nuevos productos.</wsdl:documentation>
+<wsdl:input message="tns:getNuevosProductosRequest"/>
+<wsdl:output message="tns:getNuevosProductosResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getProducto">
+<wsdl:documentation>Obtiene un producto por su ID.</wsdl:documentation>
+<wsdl:input message="tns:getProductoRequest"/>
+<wsdl:output message="tns:getProductoResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getProductos">
+<wsdl:documentation>Obtiene productos con paginación.</wsdl:documentation>
+<wsdl:input message="tns:getProductosRequest"/>
+<wsdl:output message="tns:getProductosResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getTotalProductos">
+<wsdl:documentation>Obtiene el total de productos.</wsdl:documentation>
+<wsdl:input message="tns:getTotalProductosRequest"/>
+<wsdl:output message="tns:getTotalProductosResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getProductosCat">
+<wsdl:documentation>Obtiene productos por categoría con paginación.</wsdl:documentation>
+<wsdl:input message="tns:getProductosCatRequest"/>
+<wsdl:output message="tns:getProductosCatResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getTotalProductosCat">
+<wsdl:documentation>Obtiene el total de productos por categoría.</wsdl:documentation>
+<wsdl:input message="tns:getTotalProductosCatRequest"/>
+<wsdl:output message="tns:getTotalProductosCatResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getAleatorios">
+<wsdl:documentation>Obtiene productos aleatorios por categoría excluyendo un producto.</wsdl:documentation>
+<wsdl:input message="tns:getAleatoriosRequest"/>
+<wsdl:output message="tns:getAleatoriosResponse"/>
+</wsdl:operation>
+<wsdl:operation name="verificarUsuarioExistente">
+<wsdl:documentation>Verifica si un usuario ya existe.</wsdl:documentation>
+<wsdl:input message="tns:verificarUsuarioExistenteRequest"/>
+<wsdl:output message="tns:verificarUsuarioExistenteResponse"/>
+</wsdl:operation>
+<wsdl:operation name="verificarCorreoExistente">
+<wsdl:documentation>Verifica si un correo ya existe.</wsdl:documentation>
+<wsdl:input message="tns:verificarCorreoExistenteRequest"/>
+<wsdl:output message="tns:verificarCorreoExistenteResponse"/>
+</wsdl:operation>
+<wsdl:operation name="verificarRucExistente">
+<wsdl:documentation>Verifica si un RUC ya existe.</wsdl:documentation>
+<wsdl:input message="tns:verificarRucExistenteRequest"/>
+<wsdl:output message="tns:verificarRucExistenteResponse"/>
+</wsdl:operation>
+<wsdl:operation name="insertarCliente">
+<wsdl:documentation>Inserta un nuevo cliente.</wsdl:documentation>
+<wsdl:input message="tns:insertarClienteRequest"/>
+<wsdl:output message="tns:insertarClienteResponse"/>
+</wsdl:operation>
+<wsdl:operation name="selectUsuario">
+<wsdl:documentation>Selecciona un usuario por su nombre de usuario.</wsdl:documentation>
+<wsdl:input message="tns:selectUsuarioRequest"/>
+<wsdl:output message="tns:selectUsuarioResponse"/>
+</wsdl:operation>
+<wsdl:operation name="updateUsuario">
+<wsdl:documentation>Actualiza la información de un usuario.</wsdl:documentation>
+<wsdl:input message="tns:updateUsuarioRequest"/>
+<wsdl:output message="tns:updateUsuarioResponse"/>
+</wsdl:operation>
+<wsdl:operation name="updateContraseña">
+<wsdl:documentation>Actualiza la contraseña de un usuario.</wsdl:documentation>
+<wsdl:input message="tns:updateContraseñaRequest"/>
+<wsdl:output message="tns:updateContraseñaResponse"/>
+</wsdl:operation>
+<wsdl:operation name="misCompras">
+<wsdl:documentation>Obtiene las compras de un usuario.</wsdl:documentation>
+<wsdl:input message="tns:misComprasRequest"/>
+<wsdl:output message="tns:misComprasResponse"/>
+</wsdl:operation>
+<wsdl:operation name="getProductoById">
+<wsdl:documentation>Obtiene un producto por su ID.</wsdl:documentation>
+<wsdl:input message="tns:getProductoByIdRequest"/>
+<wsdl:output message="tns:getProductoByIdResponse"/>
+</wsdl:operation>
+<wsdl:operation name="selectUsuarios">
+<wsdl:documentation>Selecciona un usuario por su nombre de usuario.</wsdl:documentation>
+<wsdl:input message="tns:selectUsuariosRequest"/>
+<wsdl:output message="tns:selectUsuariosResponse"/>
+</wsdl:operation>
+<wsdl:operation name="buscaridC">
+<wsdl:documentation>Selecciona el ID máximo de las ventas.</wsdl:documentation>
+<wsdl:input message="tns:buscaridCRequest"/>
+<wsdl:output message="tns:buscaridCResponse"/>
+</wsdl:operation>
+<wsdl:operation name="buscarProducto">
+<wsdl:documentation>Selecciona un producto por su ID y estado.</wsdl:documentation>
+<wsdl:input message="tns:buscarProductoRequest"/>
+<wsdl:output message="tns:buscarProductoResponse"/>
+</wsdl:operation>
+<wsdl:operation name="registrarCompra">
+<wsdl:documentation>Registra una nueva compra.</wsdl:documentation>
+<wsdl:input message="tns:registrarCompraRequest"/>
+<wsdl:output message="tns:registrarCompraResponse"/>
+</wsdl:operation>
+<wsdl:operation name="registrarDetalle">
+<wsdl:documentation>Registra el detalle de una venta.</wsdl:documentation>
+<wsdl:input message="tns:registrarDetalleRequest"/>
+<wsdl:output message="tns:registrarDetalleResponse"/>
+</wsdl:operation>
+<wsdl:operation name="verificarProductos">
+<wsdl:documentation>Verifica los productos de un usuario.</wsdl:documentation>
+<wsdl:input message="tns:verificarProductosRequest"/>
+<wsdl:output message="tns:verificarProductosResponse"/>
+</wsdl:operation>
+<wsdl:operation name="insertarDetalle">
+<wsdl:documentation>Inserta un detalle temporal.</wsdl:documentation>
+<wsdl:input message="tns:insertarDetalleRequest"/>
+<wsdl:output message="tns:insertarDetalleResponse"/>
+</wsdl:operation>
+<wsdl:operation name="VaciarCompra">
+<wsdl:documentation>Vacía la compra temporal de un cliente.</wsdl:documentation>
+<wsdl:input message="tns:VaciarCompraRequest"/>
+<wsdl:output message="tns:VaciarCompraResponse"/>
+</wsdl:operation>
+<wsdl:operation name="VaciarTempo">
+<wsdl:documentation>Vacía la tabla temporal.</wsdl:documentation>
+<wsdl:input message="tns:VaciarTempoRequest"/>
+<wsdl:output message="tns:VaciarTempoResponse"/>
+</wsdl:operation>
+<wsdl:operation name="VaciarVenta">
+<wsdl:documentation>Vacía las ventas en una fecha específica.</wsdl:documentation>
+<wsdl:input message="tns:VaciarVentaRequest"/>
+<wsdl:output message="tns:VaciarVentaResponse"/>
+</wsdl:operation>
+<wsdl:operation name="ventas">
+<wsdl:documentation>Selecciona las ventas de un cliente.</wsdl:documentation>
+<wsdl:input message="tns:ventasRequest"/>
+<wsdl:output message="tns:ventasResponse"/>
+</wsdl:operation>
+<wsdl:operation name="ventasDetalle">
+<wsdl:documentation>Selecciona los detalles de una venta.</wsdl:documentation>
+<wsdl:input message="tns:ventasDetalleRequest"/>
+<wsdl:output message="tns:ventasDetalleResponse"/>
+</wsdl:operation>
+<wsdl:operation name="stockActual">
+<wsdl:documentation>Selecciona el stock actual de un producto.</wsdl:documentation>
+<wsdl:input message="tns:stockActualRequest"/>
+<wsdl:output message="tns:stockActualResponse"/>
+</wsdl:operation>
+<wsdl:operation name="registrarStock">
+<wsdl:documentation>Actualiza el stock de un producto.</wsdl:documentation>
+<wsdl:input message="tns:registrarStockRequest"/>
+<wsdl:output message="tns:registrarStockResponse"/>
+</wsdl:operation>
+<wsdl:operation name="eliminarCarrito">
+<wsdl:documentation>Elimina un producto del carrito.</wsdl:documentation>
+<wsdl:input message="tns:eliminarCarritoRequest"/>
+<wsdl:output message="tns:eliminarCarritoResponse"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="PasteleriaBinding" type="tns:PasteleriaPortType">
+<soap-env:binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="getCategorias">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getCategorias" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getNuevosProductos">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getNuevosProductos" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getProducto">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getProducto" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getProductos">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getProductos" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getTotalProductos">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getTotalProductos" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getProductosCat">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getProductosCat" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getTotalProductosCat">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getTotalProductosCat" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getAleatorios">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getAleatorios" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="verificarUsuarioExistente">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=verificarUsuarioExistente" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="verificarCorreoExistente">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=verificarCorreoExistente" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="verificarRucExistente">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=verificarRucExistente" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="insertarCliente">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=insertarCliente" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="selectUsuario">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=selectUsuario" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="updateUsuario">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=updateUsuario" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="updateContraseña">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=updateContraseña" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="misCompras">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=misCompras" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="getProductoById">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=getProductoById" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="selectUsuarios">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=selectUsuarios" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="buscaridC">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=buscaridC" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="buscarProducto">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=buscarProducto" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="registrarCompra">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=registrarCompra" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="registrarDetalle">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=registrarDetalle" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="verificarProductos">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=verificarProductos" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="insertarDetalle">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=insertarDetalle" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="VaciarCompra">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=VaciarCompra" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="VaciarTempo">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=VaciarTempo" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="VaciarVenta">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=VaciarVenta" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ventas">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=ventas" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ventasDetalle">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=ventasDetalle" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="stockActual">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=stockActual" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="registrarStock">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=registrarStock" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="eliminarCarrito">
+<soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://localhost/SOAPPasteleria/Pasteleria.php?method=eliminarCarrito" style="rpc"/>
+<wsdl:input>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:input>
+<wsdl:output>
+<soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Pasteleria">
+<wsdl:documentation/>
+<wsdl:port name="PasteleriaPort" binding="tns:PasteleriaBinding">
+<soap-env:address location="http://localhost/SOAPPasteleria/Pasteleria.php"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
