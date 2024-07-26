@@ -1,0 +1,135 @@
+<resources>
+    <string name="app_name">La Dulce Esencia</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="Pedidos">Carrito de Compras</string>
+    <string name="Empresa">Pasteleria La Dulce Esencia</string>
+    <string name="Direcc">C. 69 473, Centro, 97000 Mérida, Yuc.</string>
+    <string name="CarritoIB">Compras</string>
+    <string name="Agradecimiento">Gracias por su compra en La Dulce Esencia</string>
+
+    <string name="pasteles">Pasteles</string>
+    <string name="tartas">Tartas</string>
+    <string name="cupcakes">CupCakes</string>
+
+    <!-- otras definiciones -->
+    <string-array name="genero_array">
+        <item>Selecciona Genero</item>
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </string-array>
+
+    <string-array name="municipios_yucatan">
+        <item>Municipio</item>
+        <item>Abalá</item>
+        <item>Acanceh</item>
+        <item>Akil</item>
+        <item>Baca</item>
+        <item>Bokobá</item>
+        <item>Buctzotz</item>
+        <item>Cacalchén</item>
+        <item>Calotmul</item>
+        <item>Cansahcab</item>
+        <item>Cantamayec</item>
+        <item>Celestún</item>
+        <item>Cenotillo</item>
+        <item>Chacsinkín</item>
+        <item>Chankom</item>
+        <item>Chapab</item>
+        <item>Chemax</item>
+        <item>Chicxulub Pueblo</item>
+        <item>Chichimilá</item>
+        <item>Chikindzonot</item>
+        <item>Chocholá</item>
+        <item>Chumayel</item>
+        <item>Conkal</item>
+        <item>Cuncunul</item>
+        <item>Cuzamá</item>
+        <item>Dzán</item>
+        <item>Dzemul</item>
+        <item>Dzidzantún</item>
+        <item>Dzilam de Bravo</item>
+        <item>Dzilam González</item>
+        <item>Dzitás</item>
+        <item>Dzoncauich</item>
+        <item>Espita</item>
+        <item>Halachó</item>
+        <item>Hocaba</item>
+        <item>Hoctún</item>
+        <item>Homún</item>
+        <item>Huhí</item>
+        <item>Hunucmá</item>
+        <item>Ixil</item>
+        <item>Izamal</item>
+        <item>Kanasín</item>
+        <item>Kantunil</item>
+        <item>Kaua</item>
+        <item>Kinchil</item>
+        <item>Kopomá</item>
+        <item>Mama</item>
+        <item>Maní</item>
+        <item>Maxcanú</item>
+        <item>Mayapán</item>
+        <item>Mérida</item>
+        <item>Mocochá</item>
+        <item>Motul</item>
+        <item>Muna</item>
+        <item>Muxupip</item>
+        <item>Opichén</item>
+        <item>Oxkutzcab</item>
+        <item>Panabá</item>
+        <item>Peto</item>
+        <item>Progreso</item>
+        <item>Quintana Roo</item>
+        <item>Río Lagartos</item>
+        <item>Sacalum</item>
+        <item>Samahil</item>
+        <item>Sanahcat</item>
+        <item>Santa Elena</item>
+        <item>Seyé</item>
+        <item>Sinanché</item>
+        <item>Sotuta</item>
+        <item>Suma</item>
+        <item>Tahdziú</item>
+        <item>Tahmek</item>
+        <item>Teabo</item>
+        <item>Tecoh</item>
+        <item>Tekal de Venegas</item>
+        <item>Tekantó</item>
+        <item>Tekax</item>
+        <item>Tekit</item>
+        <item>Tekom</item>
+        <item>Temozón</item>
+        <item>Tepakán</item>
+        <item>Tetiz</item>
+        <item>Teya</item>
+        <item>Ticul</item>
+        <item>Timucuy</item>
+        <item>Tinum</item>
+        <item>Tixcacalcupul</item>
+        <item>Tixkokob</item>
+        <item>Tixmehuac</item>
+        <item>Tixpéhual</item>
+        <item>Tizimín</item>
+        <item>Tunkás</item>
+        <item>Tzucacab</item>
+        <item>Uayma</item>
+        <item>Ucú</item>
+        <item>Umán</item>
+        <item>Valladolid</item>
+        <item>Xocchel</item>
+        <item>Yaxcabá</item>
+        <item>Yaxkukul</item>
+        <item>Yobaín</item>
+    </string-array>
+
+
+</resources>

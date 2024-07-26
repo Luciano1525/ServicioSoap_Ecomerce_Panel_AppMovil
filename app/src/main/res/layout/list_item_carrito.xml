@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/color_fondo_list"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/ivImagen"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop"
+        android:src="@drawable/capuccino" />
+
+    <LinearLayout
+        android:layout_width="183dp"
+        android:layout_height="134dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Producto"
+            android:textColor="@color/Letra"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnDisminuirCantidad"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="-"
+                android:textColor="@color/Blanco"
+                android:backgroundTint="@color/Eliminar"
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="1"
+                android:textColor="@color/Letra"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnAumentarCantidad"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="@color/Eliminar"
+                android:padding="8dp"
+                android:text="+"
+                android:textColor="@color/Blanco"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPrecio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio del Producto"
+            android:textColor="@color/Naranja"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="Eliminar"
+        android:background="?attr/selectableItemBackground"
+        android:textColor="@color/Botones"
+        android:backgroundTint="@color/Eliminar"
+        android:textSize="16sp"
+        android:padding="8dp" />
+</LinearLayout>
