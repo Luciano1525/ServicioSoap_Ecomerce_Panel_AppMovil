@@ -5,47 +5,58 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 public class SliderAdapter extends PagerAdapter {
+    private List<Pastel> pasteles;
+    private String urlBase; // Base URL para las imágenes
 
-    private Context context;
-    private List<Integer> imageList;
-
-    public SliderAdapter(Context context, List<Integer> imageList) {
-        this.context = context;
-        this.imageList = imageList;
+    public SliderAdapter(List<Pastel> pasteles, String urlBase) {
+        this.pasteles = pasteles;
+        this.urlBase = urlBase;
     }
 
     @Override
     public int getCount() {
-        return imageList.size();
+        return pasteles.size();
     }
 
     @Override
-    public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+    public boolean isViewFromObject(View view, Object object) {
         return view == object;
     }
 
-    @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        LayoutInflater inflater = LayoutInflater.from(context);
+    public Object instantiateItem(ViewGroup container, int position) {
+        LayoutInflater inflater = LayoutInflater.from(container.getContext());
         View view = inflater.inflate(R.layout.slider_item, container, false);
 
         ImageView imageView = view.findViewById(R.id.imageView);
-        imageView.setImageResource(imageList.get(position));
+        Pastel pastel = pasteles.get(position);
+
+        // Concatenar la base URL con la URL parcial
+        String imageUrl = urlBase + pastel.getImagen();
+        Glide.with(container.getContext())
+                .load(imageUrl)
+                .into(imageView);
 
         container.addView(view);
         return view;
     }
 
     @Override
-    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
+    public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((View) object);
+    }
+
+    public void setPasteles(List<Pastel> pasteles) {
+        this.pasteles = pasteles;
+        notifyDataSetChanged();
     }
 }

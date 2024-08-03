@@ -1,6 +1,8 @@
 package com.example.pasteleria;
 
 import android.content.Context;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +75,8 @@ public class CarritoAdapter extends BaseAdapter {
                 notifyDataSetChanged();
                 // Actualizar el total después de eliminar un producto
                 ((carrito) context).actualizarTotal();
+                // Actualizar la cantidad en la base de datos
+                ((carrito) context).eliminarProductoDeBaseDeDatos(producto.getNombre());
             }
         });
 
@@ -86,6 +90,9 @@ public class CarritoAdapter extends BaseAdapter {
                     holder.tvCantidad.setText(String.valueOf(producto.getCantidad()));
                     notifyDataSetChanged();
                     ((carrito) context).actualizarTotal();
+
+                    // Actualizar la cantidad en la base de datos
+                    ((carrito) context).actualizarCantidadEnBaseDeDatos(producto.getNombre(), producto.getCantidad());
                 }
             }
         });
@@ -99,6 +106,9 @@ public class CarritoAdapter extends BaseAdapter {
                 holder.tvCantidad.setText(String.valueOf(producto.getCantidad()));
                 notifyDataSetChanged();
                 ((carrito) context).actualizarTotal();
+
+                // Actualizar la cantidad en la base de datos
+                ((carrito) context).actualizarCantidadEnBaseDeDatos(producto.getNombre(), producto.getCantidad());
             }
         });
 
@@ -114,4 +124,5 @@ public class CarritoAdapter extends BaseAdapter {
         Button btnDisminuirCantidad;
         Button btnAumentarCantidad;
     }
+
 }

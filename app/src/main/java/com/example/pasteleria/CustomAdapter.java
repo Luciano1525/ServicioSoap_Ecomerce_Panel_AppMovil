@@ -8,53 +8,62 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
-    Context context;
-    List<Contacto> lst;
+    private final Context context;
+    private final List<Contacto> contactos;
 
-    public CustomAdapter(Context context, List<Contacto> lst) {
+    public CustomAdapter(Context context, List<Contacto> contactos) {
         this.context = context;
-        this.lst = lst;
+        this.contactos = contactos;
     }
 
     @Override
     public int getCount() {
-        return lst.size();
+        return contactos.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return i;
+    public Object getItem(int position) {
+        return contactos.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ImageView Imagenlist;
-        TextView Productolist;
-        TextView Categorialist;
-        TextView Preciolist;
-        Contacto c = lst.get(i);
-
-        if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.listview_p, null);
-            Imagenlist = view.findViewById(R.id.Imagenlist);
-            Productolist = view.findViewById(R.id.Productolist);
-            Categorialist = view.findViewById(R.id.Categorialist);
-            Preciolist = view.findViewById(R.id.Preciolist);
-
-            Imagenlist.setImageResource(c.Imagenlist);
-            Productolist.setText(c.Productolist);
-            Categorialist.setText(c.Categorialist);
-            Preciolist.setText(c.Preciolist);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Inflar el layout para cada item de la lista
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.listview_p, parent, false);
         }
 
-        return view;
+        // Obtener referencias a las vistas del layout
+        TextView nombreView = convertView.findViewById(R.id.Productolist);
+        TextView estadoView = convertView.findViewById(R.id.Estado);
+        TextView precioView = convertView.findViewById(R.id.Preciolist);
+        ImageView imagenView = convertView.findViewById(R.id.Imagenlist);
+
+        // Obtener el producto actual
+        Contacto contacto = contactos.get(position);
+
+        // Configurar las vistas con los datos del producto
+        nombreView.setText(contacto.getNombre());
+        estadoView.setText(contacto.getEstado());
+        precioView.setText(contacto.getPrecio());
+
+        // Cargar la imagen usando Glide
+        Glide.with(context)
+                .load(contacto.getImagen())
+                .into(imagenView);
+
+        return convertView;
     }
+
 }

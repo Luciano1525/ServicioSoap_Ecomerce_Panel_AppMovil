@@ -12,6 +12,15 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <!-- Estilo para el texto de los elementos del menú -->
+    <style name="MenuTextAppearance">
+        <item name="android:textColor">#000000</item> <!-- Color de texto negro -->
+        <item name="android:textStyle">bold</item> <!-- Texto en negrillas -->
+    </style>
 
+    <!-- Estilo para el fondo del menú -->
+    <style name="PopupMenuBackground">
+        <item name="android:popupBackground">#FFFFFF</item> <!-- Fondo blanco -->
+    </style>
 
 </resources>

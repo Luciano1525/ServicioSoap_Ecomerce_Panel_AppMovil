@@ -33,9 +33,37 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@id/tvTituloCarrito"
-        android:layout_above="@id/llTotal"
+        android:layout_above="@id/llUsuario"
         android:layout_marginTop="16dp"
         android:dividerHeight="8dp" />
+
+    <LinearLayout
+        android:id="@+id/llUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llTotal"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvUsuar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario:"
+            android:textSize="24sp"
+            android:textColor="@color/Negro"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text=""
+            android:textSize="24sp"
+            android:textColor="@color/Verde"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/llTotal"
@@ -43,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/btnComprar"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tvTotalLabel"

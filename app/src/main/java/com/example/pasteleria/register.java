@@ -134,7 +134,7 @@ public class register extends AppCompatActivity {
         String genero = spinnerGenero.getSelectedItem().toString();
         String usuario = txtUsuario.getText().toString();
         String contraseña = txtContra.getText().toString();
-        String estado = "Activo"; // O el valor que corresponda
+        String estado = "1"; // 1 el valor que corresponda
 
         // Ejecutar la tarea asíncrona para llamar al servicio web
         new RegistrarClienteTask().execute(String.valueOf(ruc), nombre, direccion, telefono, municipio, estadoMunicipio, correo, genero, usuario, contraseña, preferencias.toString(), estado);

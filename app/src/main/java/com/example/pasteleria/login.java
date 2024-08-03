@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.content.SharedPreferences;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.ksoap2.SoapEnvelope;
@@ -76,6 +76,11 @@ public class login extends AppCompatActivity {
                             dbManager.close();
                             String mensajeBienvenida = "Login exitoso. Bienvenido " + nombreUsuario;
                             Toast.makeText(getApplicationContext(), mensajeBienvenida, Toast.LENGTH_SHORT).show();
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("usuario", usuario1);
+                            editor.apply(); // o editor.commit();
 
                             // Navegar a la actividad principal
                             Intent intent = new Intent(login.this, principal.class);

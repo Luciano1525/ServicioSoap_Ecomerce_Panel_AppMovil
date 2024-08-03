@@ -77,19 +77,23 @@
                         android:id="@+id/imgCategoria2"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/tartas"
                         android:layout_margin="8dp"
-                        android:scaleType="centerCrop"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
                         android:background="@drawable/round_background"
-                        android:contentDescription="@string/tartas" />
+                        android:contentDescription="@string/cupcakes"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cupcakes" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tartas"
+                        android:gravity="center"
+                        android:text="CupCakes"
                         android:textColor="@color/Negro"
-                        android:textSize="16sp"
-                        android:gravity="center" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -102,16 +106,20 @@
                         android:id="@+id/imgCategoria3"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:src="@drawable/cupcakes"
                         android:layout_margin="8dp"
-                        android:scaleType="centerCrop"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
                         android:background="@drawable/round_background"
-                        android:contentDescription="@string/cupcakes" />
+                        android:contentDescription="@string/tartas"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tartas" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CupCakes"
+                        android:text="Tartas"
                         android:textColor="@color/Negro"
                         android:textSize="16sp"
                         android:gravity="center" />

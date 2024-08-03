@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/mMC"
         android:title="Mi Cuenta"
+        android:titleTextAppearance="@color/white"
         android:tooltipText="Opciones de Cuenta"
-        />
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/mC"
         android:title="Carrito"
+        android:titleTextAppearance="@color/white"
         android:tooltipText="Carrito de Compras"
-        />
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/mCP"
+        android:title="Mis Compras"
+        android:titleTextAppearance="@color/white"
+        android:tooltipText="Compras"
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/mMP"
         android:title="Menu Principal"
+        android:titleTextAppearance="@color/white"
         android:tooltipText="Menu Principal"
-        />
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/mSalir"
         android:title="Salir"
+        android:titleTextAppearance="@color/white"
         android:tooltipText="Salir"
-        />
-
-
+        app:showAsAction="never" />
 </menu>

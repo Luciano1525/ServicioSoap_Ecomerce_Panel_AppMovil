@@ -1,57 +1,50 @@
 package com.example.pasteleria;
 
 public class Contacto {
-    public int id;
-    public int Imagenlist;
-    public String Productolist;
-    public String Categorialist;
-    public String Preciolist;
+    private String nombre;
+    private String estado;
+    private String precio;
+    private String imagen;
 
-    public int getId() {
-        return id;
+    // Constructor con parámetros
+    public Contacto(String nombre, String estado, String precio, String imagen) {
+        this.nombre = nombre;
+        this.estado = estado;
+        this.precio = precio;
+        this.imagen = imagen;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    // Getters y setters
+    public String getNombre() {
+        return nombre;
     }
 
-    public int getImagenlist() {
-        return Imagenlist;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setImagenlist(int Imagenlist) {
-        this.Imagenlist = Imagenlist;
+    public String getEstado() {
+        return estado;
     }
 
-    public String getProductolist() {
-        return Productolist;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public void setProductolist(String Productolist) {
-        this.Productolist = Productolist;
+    public String getPrecio() {
+        return precio;
     }
 
-    public String getCategorialist() {
-        return Categorialist;
+    public void setPrecio(String precio) {
+        this.precio = precio;
     }
 
-    public void setCategorialist(String Categorialist) {
-        this.Categorialist = Categorialist;
+    public String getImagen() {
+        return imagen;
     }
 
-    public String getPreciolist() {
-        return Preciolist;
-    }
-
-    public void setPreciolist(String Preciolist) {
-        this.Preciolist = Preciolist;
-    }
-
-    public Contacto(int id, int Imagenlist, String Productolist, String Categorialist, String Preciolist) {
-        this.id = id;
-        this.Imagenlist = Imagenlist;
-        this.Productolist = Productolist;
-        this.Categorialist = Categorialist;
-        this.Preciolist = Preciolist;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }
+
