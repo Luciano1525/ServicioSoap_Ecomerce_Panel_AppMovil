@@ -119,6 +119,8 @@ public class principal extends AppCompatActivity {
 
         if (id == R.id.mMC) {
             // Ir a la actividad "Mi Cuenta"
+            Intent intentCuenta = new Intent(this, micuenta.class);
+            startActivity(intentCuenta);
             return true;
         } else if (id == R.id.mC) {
             // Ir a la actividad "Carrito"
