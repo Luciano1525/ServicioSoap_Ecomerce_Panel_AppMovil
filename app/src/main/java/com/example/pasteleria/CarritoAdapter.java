@@ -1,8 +1,6 @@
 package com.example.pasteleria;
 
 import android.content.Context;
-import android.content.ContentValues;
-import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -61,10 +61,15 @@ public class CarritoAdapter extends BaseAdapter {
         final Productos producto = productos.get(position);
 
         // Mostrar los datos en los componentes del layout
-        holder.ivImagen.setImageResource(producto.getImagen());
         holder.tvNombre.setText(producto.getNombre());
         holder.tvCantidad.setText(String.valueOf(producto.getCantidad()));
         holder.tvPrecio.setText(producto.getPrecio());
+
+        // Cargar la imagen usando Glide
+        String urlImagen = producto.getImagen(); // Utilizar directamente la URL proporcionada en el producto
+        Glide.with(context)
+                .load(urlImagen)
+                .into(holder.ivImagen);
 
         // Configurar el listener para el botón de eliminar
         holder.btnEliminar.setOnClickListener(new View.OnClickListener() {
@@ -124,5 +129,4 @@ public class CarritoAdapter extends BaseAdapter {
         Button btnDisminuirCantidad;
         Button btnAumentarCantidad;
     }
-
 }

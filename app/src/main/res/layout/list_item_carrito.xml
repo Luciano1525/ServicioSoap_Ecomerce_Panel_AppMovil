@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre del Producto"
             android:textColor="@color/Letra"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <LinearLayout

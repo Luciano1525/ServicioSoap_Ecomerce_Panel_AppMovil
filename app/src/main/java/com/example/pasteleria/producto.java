@@ -105,6 +105,14 @@ public class producto extends AppCompatActivity {
         btnComprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Obtener una instancia de SharedPreferences
+                SharedPreferences sharedPreferences = getSharedPreferences("MiPreferencias", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putInt("dato", 0);
+                editor.apply(); // o editor.commit();
+
+
                 String Nombre = tvNombreProducto.getText().toString();
                 String Cantidad = tvCantidad.getText().toString();
                 int cantidadInt = Integer.parseInt(Cantidad);

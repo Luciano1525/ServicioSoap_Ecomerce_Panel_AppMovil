@@ -1,23 +1,23 @@
 package com.example.pasteleria;
 
 public class Productos {
-    private int imagen;
+    private String imagen; // Cambia de int a String
     private String nombre;
     private String precio;
     private int cantidad;
 
-    public Productos(int imagen, String nombre, String precio, int cantidad) {
+    public Productos(String imagen, String nombre, String precio, int cantidad) {
         this.imagen = imagen;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
     }
 
-    public int getImagen() {
+    public String getImagen() { // Cambia el tipo de retorno a String
         return imagen;
     }
 
-    public void setImagen(int imagen) {
+    public void setImagen(String imagen) { // Cambia el tipo del parámetro a String
         this.imagen = imagen;
     }
 
