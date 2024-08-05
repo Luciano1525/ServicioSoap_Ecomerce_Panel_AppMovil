@@ -129,6 +129,8 @@ public class principal extends AppCompatActivity {
             return true;
         } else if (id == R.id.mCP) {
             // Ir a la actividad "Mis Compras"
+            Intent intentCompras = new Intent(this, miscompras.class);
+            startActivity(intentCompras);
             return true;
         } else if (id == R.id.mMP) {
             // Ir a la actividad "Menu Principal"

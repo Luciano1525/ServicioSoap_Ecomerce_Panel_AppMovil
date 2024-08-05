@@ -144,6 +144,8 @@ public class productos_categoria extends AppCompatActivity {
 
         if (id == R.id.mMC) {
             // Ir a la actividad "Mi Cuenta"
+            Intent intentCuenta = new Intent(this, micuenta.class);
+            startActivity(intentCuenta);
             return true;
         } else if (id == R.id.mC) {
             // Ir a la actividad "Carrito"
@@ -152,6 +154,8 @@ public class productos_categoria extends AppCompatActivity {
             return true;
         } else if (id == R.id.mCP) {
             // Ir a la actividad "Mis Compras"
+            Intent intentCompras = new Intent(this, miscompras.class);
+            startActivity(intentCompras);
             return true;
         } else if (id == R.id.mMP) {
             // Ir a la actividad "Menu Principal"

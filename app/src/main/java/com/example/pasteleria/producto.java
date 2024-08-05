@@ -538,6 +538,8 @@ public class producto extends AppCompatActivity {
 
         if (id == R.id.mMC) {
             // Ir a la actividad "Mi Cuenta"
+            Intent intentCuenta = new Intent(this, micuenta.class);
+            startActivity(intentCuenta);
             return true;
         } else if (id == R.id.mC) {
             // Ir a la actividad "Carrito"
@@ -546,10 +548,13 @@ public class producto extends AppCompatActivity {
             return true;
         } else if (id == R.id.mCP) {
             // Ir a la actividad "Mis Compras"
+            Intent intentCompras = new Intent(this, miscompras.class);
+            startActivity(intentCompras);
             return true;
         } else if (id == R.id.mMP) {
             // Ir a la actividad "Menu Principal"
-            Toast.makeText(getApplicationContext(), "Ya estas en la opcion", Toast.LENGTH_SHORT).show();
+            Intent intentMenuPrincipal = new Intent(this, principal.class);
+            startActivity(intentMenuPrincipal);
             return true;
         } else if (id == R.id.mSalir) {
             // Manejar la acción de salir
@@ -559,6 +564,5 @@ public class producto extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
-
 
 }

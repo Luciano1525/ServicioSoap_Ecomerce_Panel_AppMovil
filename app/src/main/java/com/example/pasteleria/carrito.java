@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -74,6 +75,7 @@ public class carrito extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putInt("dato", 1);
                 editor.apply(); // o editor.commit();
+                mostrarProductos();
 
                 Toast.makeText(getApplicationContext(), "Compra", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(carrito.this, ticket.class);
@@ -201,11 +203,25 @@ public class carrito extends AppCompatActivity {
         TablaDetalle oper = new TablaDetalle(this, "operacion", null, 1);
         SQLiteDatabase db = oper.getWritableDatabase();
 
+        // Obtener el precio del producto
+        String[] projection = {"precio"};
+        Cursor cursor = db.query("detalle_temp", projection, "nombre = ?", new String[]{nombreProducto}, null, null, null);
+        String precio = "";
+        if (cursor.moveToFirst()) {
+            precio = cursor.getString(cursor.getColumnIndexOrThrow("precio"));
+        }
+        cursor.close();
+
+        // Calcular el nuevo total
+        double precioDouble = Double.parseDouble(precio.replace("$", "").trim());
+        double nuevoTotal = nuevaCantidad * precioDouble;
+
         // Preparar el contenido para la actualización
         ContentValues values = new ContentValues();
         values.put("cantidad", nuevaCantidad);
+        values.put("total", nuevoTotal);
 
-        // Actualizar la cantidad del producto en la base de datos
+        // Actualizar la cantidad y el total del producto en la base de datos
         String whereClause = "nombre = ?";
         String[] whereArgs = { nombreProducto };
         db.update("detalle_temp", values, whereClause, whereArgs);
@@ -213,6 +229,7 @@ public class carrito extends AppCompatActivity {
         // Cerrar la base de datos
         db.close();
     }
+
 
     public void eliminarProductoDeBaseDeDatos(String nombreProducto) {
         // Crear una instancia de la base de datos
@@ -233,5 +250,99 @@ public class carrito extends AppCompatActivity {
         // Hacer visible el menú
         getMenuInflater().inflate(R.menu.overflow, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.mMC) {
+            // Ir a la actividad "Mi Cuenta"
+            Intent intentCuenta = new Intent(this, micuenta.class);
+            startActivity(intentCuenta);
+            return true;
+        } else if (id == R.id.mC) {
+            // Ir a la actividad "Carrito"
+            Toast.makeText(getApplicationContext(), "Ya estas en la opcion", Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (id == R.id.mCP) {
+            // Ir a la actividad "Mis Compras"
+            Intent intentCompras = new Intent(this, miscompras.class);
+            startActivity(intentCompras);
+            return true;
+        } else if (id == R.id.mMP) {
+            // Ir a la actividad "Menu Principal"
+            Intent intentMenuPrincipal = new Intent(this, principal.class);
+            startActivity(intentMenuPrincipal);
+            return true;
+        } else if (id == R.id.mSalir) {
+            // Manejar la acción de salir
+            finish();
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
+
+
+
+    public void mostrarProductos() {
+        //Creacion de objeto de enlace a las base de datos
+        TablaDetalle oper = new TablaDetalle(this, "operacion", null, 1);
+
+        // Obtener una instancia de lectura de la base de datos
+        SQLiteDatabase DetallesBD = oper.getReadableDatabase();
+
+        // Definir una proyección de las columnas que queremos leer
+        String[] projection = {
+                "id",
+                "nombre",
+                "cantidad",
+                "precio",
+                "total",
+                "id_producto",
+                "id_usuario",
+                "estado",
+                "tipo",
+                "id_cliente"
+        };
+
+        // Ejecutar la consulta
+        Cursor cursor = DetallesBD.query(
+                "detalle_temp",   // La tabla a consultar
+                projection,       // Las columnas a devolver
+                null,             // No se aplica una cláusula WHERE
+                null,             // No se aplican valores para la cláusula WHERE
+                null,             // No agrupar las filas
+                null,             // No filtrar por grupos de filas
+                null              // No aplicar un ordenamiento
+        );
+
+        // Moverse a la primera fila del cursor y recorrer todas las filas
+        if (cursor.moveToFirst()) {
+            do {
+                // Leer los datos de cada columna
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+                String nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"));
+                String cantidad = cursor.getString(cursor.getColumnIndexOrThrow("cantidad"));
+                String precio = cursor.getString(cursor.getColumnIndexOrThrow("precio"));
+                String total = cursor.getString(cursor.getColumnIndexOrThrow("total"));
+                String idProducto = cursor.getString(cursor.getColumnIndexOrThrow("id_producto"));
+                String idUsuario = cursor.getString(cursor.getColumnIndexOrThrow("id_usuario"));
+                String estado = cursor.getString(cursor.getColumnIndexOrThrow("estado"));
+                String tipo = cursor.getString(cursor.getColumnIndexOrThrow("tipo"));
+                String id_cliente = cursor.getString(cursor.getColumnIndexOrThrow("id_cliente"));
+
+                // Mostrar los datos en el log de la consola
+                Log.d("DB", "ID: " + id + ", Nombre: " + nombre + ", Cantidad: " + cantidad + ", Precio: " + precio + ", Total: " + total + ", ID Producto: " + idProducto + ", ID Usuario: " + idUsuario + ", Estado: " + estado + ", Tipo: " + tipo + ", Id Cliente: " + id_cliente);
+            } while (cursor.moveToNext());
+        }
+
+        // Cerrar el cursor y la base de datos
+        cursor.close();
+        DetallesBD.close();
     }
 }

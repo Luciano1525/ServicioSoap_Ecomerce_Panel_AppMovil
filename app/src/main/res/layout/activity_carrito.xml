@@ -74,15 +74,6 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/tvTotalLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total:"
-            android:textSize="24sp"
-            android:textColor="@color/Negro"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
